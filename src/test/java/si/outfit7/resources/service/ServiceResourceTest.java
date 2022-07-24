@@ -19,7 +19,10 @@ import java.util.Random;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
-
+/**
+ * Junit class implement test scenarios for testing ServiceResources
+ * @author Goran Corkovic
+ */
 @Testcontainers
 class ServiceResourceTest extends AbstractContainerBaseTest {
 

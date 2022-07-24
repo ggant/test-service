@@ -1,5 +1,9 @@
 package si.outfit7.exception;
 
+/**
+ * Custom application exception
+ * @author Goran Corkovic
+ */
 public class Outfit7Exception extends Exception {
     private static final long serialVersionUID = 1L;
     private ErrorEnum errorEnum;

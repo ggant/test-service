@@ -1,5 +1,9 @@
 package si.outfit7.types;
 
+/**
+ * Class represents Status of supported features
+ * @author Goran Corkovic
+ */
 public class Status {
     private String multiplayer;
 

@@ -3,7 +3,6 @@
 > It is used by users and administrators to check the state of the other services.
 
 ## Table of Contents
-* [General Info](#general-information)
 * [Technologies Used](#technologies-used)
 * [Features](#features)
 * [Availability](#availability)
@@ -14,14 +13,6 @@
 * [Build and test service](#build-and-test-service)
 * [Kubernetes](#kubernetes)
 * [Contact](#contact)
-
-
-## General Information
-- Provide general information about your project here.
-- What problem does it (intend to) solve?
-- What is the purpose of your project?
-- Why did you undertake it?
-
 
 ## Technologies Used
 - Java 11
@@ -66,7 +57,7 @@ Service image is available on publicly accessible Docker hub repository: https:/
 ## Assumptions
 I made an assumption, every time the checkServices() function is called it is checked
 whether the user with userId already exists in database.
-If it doesn't exist then function create new user and inserts data (userId, timezone, cc, counter )
+If it doesn't exist then function create new user and inserts data (userId, timezone, cc)
 into the user table (TEST_USER) and set counter on user to 1.
 If it exists, function will find user, update his data depending on input parameters, and 
 increment counter for 1.
@@ -125,6 +116,12 @@ Outfit7ExceptionUtil prepare, log and throw application errors.
 Authenticator class prepare HTTP header with Basic authentication, used for calling client REST service.
 
   ![Beans](pictures/util.PNG)
+
+- liberty/config/server.xml:
+Contain settings for Openliberty server.
+
+- resources/META-INF/persistent.xml:
+Definitions of DataSource connection to serverless database.
 
 Service decouple database entity model (used for communication with database) 
 from java data type model (used as response of REST API).

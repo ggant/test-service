@@ -13,6 +13,10 @@ import java.util.ArrayList;
 import java.util.List;
 
 
+/**
+ * CDI bean that incorporate logic for communication with database
+ * @author Goran Corkovic
+ */
 @RequestScoped
 public class DatabaseCDI {
 

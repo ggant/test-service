@@ -4,10 +4,13 @@ import org.testcontainers.containers.GenericContainer;
 import org.testcontainers.containers.wait.strategy.Wait;
 import org.testcontainers.utility.DockerImageName;
 
+/**
+ * Abstract class that define common container and url used in all test scenarios.
+ * @author Goran Corkovic
+ */
 public abstract class AbstractContainerBaseTest {
 
 
-    //public static final String url = "http://20.23.64.180:8080";
     public static final GenericContainer testService;
 
     public static final String url;

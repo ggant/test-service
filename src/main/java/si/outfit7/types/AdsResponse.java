@@ -1,5 +1,9 @@
 package si.outfit7.types;
 
+/**
+ * Class represents return from partners REST service
+ * @author Goran Corkovic
+ */
 public class AdsResponse {
 
     private String ads;

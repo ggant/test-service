@@ -2,6 +2,10 @@ package si.outfit7.entity;
 
 import jakarta.persistence.*;
 
+/**
+ * JPA entity class that maps database tabel TEST_USER into java class.
+ * @author Goran Corkovic
+ */
 @NamedQuery(name="UserEntity.findAll", query="SELECT u FROM UserEntity u")
 @NamedQuery(name="UserEntity.findUserByUserID", query="SELECT u FROM UserEntity u where u.userId = :userId")
 @NamedQuery(name="UserEntity.deleteUser", query="DELETE FROM UserEntity u where u.userId = :userId")

@@ -5,6 +5,10 @@ import org.slf4j.LoggerFactory;
 import si.outfit7.exception.ErrorEnum;
 import si.outfit7.exception.Outfit7Exception;
 
+/**
+ * Helper class for logging and throwing application exception (Outfit7Exception)
+ * @author Goran Corkovic
+ */
 public class Outfit7ExceptionUtil {
 
     private static final Logger LOG = LoggerFactory.getLogger(Outfit7ExceptionUtil.class.getName());

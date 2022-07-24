@@ -21,6 +21,10 @@ import si.outfit7.exception.Outfit7Exception;
 import si.outfit7.types.User;
 import si.outfit7.util.Outfit7ExceptionUtil;
 
+/**
+ * Implementation of REST API interface used by administrator
+ * @author Goran Corkovic
+ */
 @RequestScoped
 @Path("/admin/")
 public class AdminResource {

@@ -1,5 +1,9 @@
 package si.outfit7.types;
 
+/**
+ * Class represents User with his data
+ * @author Goran Corkovic
+ */
 public class User {
 
     private String userId;

@@ -33,10 +33,12 @@ import si.outfit7.util.Outfit7ExceptionUtil;
 import java.time.DayOfWeek;
 import java.time.ZoneId;
 import java.time.ZonedDateTime;
-import java.util.List;
 import java.util.Set;
 
-
+/**
+ * Implementation of REST API interface used by users
+ * @author Goran Corkovic
+ */
 @RequestScoped
 @Path("/service/")
 public class ServiceResource {

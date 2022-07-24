@@ -8,6 +8,10 @@ import jakarta.xml.bind.DatatypeConverter;
 import java.io.IOException;
 import java.io.UnsupportedEncodingException;
 
+/**
+ * Helper class that creates HTTP Authentication header with Basic credentials
+ * @author Goran Corkovic
+ */
 public class Authenticator implements ClientRequestFilter {
 
     private final String user;

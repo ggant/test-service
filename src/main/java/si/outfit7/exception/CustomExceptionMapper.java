@@ -8,6 +8,11 @@ import jakarta.ws.rs.ext.Provider;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+/**
+ * Custom error handling and sending specific
+ * responses back when an exception or error occurs.
+ * @author Goran Corkovic
+ */
 @Provider
 public class CustomExceptionMapper implements ExceptionMapper<Exception> {
 

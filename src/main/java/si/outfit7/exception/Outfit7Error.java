@@ -1,5 +1,10 @@
 package si.outfit7.exception;
 
+/**
+ * Error message return to REST API caller.
+ * Contains error code, error description and HTTP status
+ * @author Goran Corkovic
+ */
 public class Outfit7Error {
 
     private static final long serialVersionUID = 1L;

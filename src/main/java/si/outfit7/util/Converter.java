@@ -3,6 +3,10 @@ package si.outfit7.util;
 import si.outfit7.entity.UserEntity;
 import si.outfit7.types.User;
 
+/**
+ * Helper class that converts entity to types and vice versa
+ * @author Goran Corkovic
+ */
 public class Converter {
 
     public static User convertUserEntityToUser(UserEntity userEntity) {

@@ -13,7 +13,10 @@ import org.slf4j.LoggerFactory;
 import si.outfit7.types.AdsResponse;
 import si.outfit7.util.Authenticator;
 
-
+/**
+ * CDI bean that encapsulate logic for communication with partner REST API service.
+ * @author Goran Corkovic
+ */
 @RequestScoped
 public class ClientCDI {
 
