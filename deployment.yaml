@@ -1,0 +1,159 @@
+apiVersion: v1
+kind: Namespace
+metadata:
+  name: test-service
+---
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: test-service-configmap
+  namespace: test-service
+data:
+  username: "fun7user"
+  counter: "5"
+  supportTimeZone: "Europe/Ljubljana"
+  supportHourFrom: "9"
+  supportHourTo: "15"
+  clientRestUrl: "https://us-central1-o7tools.cloudfunctions.net/fun7-ad-partner"
+  clientResponseOK: "sure, why not!"
+  ccParameter: "US"
+  db_serverName: "microservice-web-db-server.database.windows.net"
+  db_portNumber: "1433"
+  db_databaseName: "microservice-web-db"
+  db_username: "sqladmin@microservice-web-db-server"
+---
+apiVersion: v1
+kind: Secret
+metadata:
+  name: test-service-secret
+  namespace: test-service
+type: Opaque
+data:
+  password: ZnVuN3Bhc3M=
+  trustStorePass: Y2hhbmdlaXQ=
+  db_password: U3FsZ2VzbG8xMjMh
+  keyStorePass: c2VjcmV0
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: test-service-deployment
+  namespace: test-service
+  labels:
+    app: test-service
+spec:
+  selector:
+    matchLabels:
+      app: test-service
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: test-service
+    spec:
+      containers:
+        - name: test-service
+          image: corkovic/test-service:1.0
+          imagePullPolicy: Always
+          ports:
+            - containerPort: 9082
+          env:
+            - name: username
+              valueFrom:
+                configMapKeyRef:
+                  name: test-service-configmap
+                  key: username
+            - name: counter
+              valueFrom:
+                configMapKeyRef:
+                  name: test-service-configmap
+                  key: counter
+            - name: supportTimeZone
+              valueFrom:
+                configMapKeyRef:
+                  name: test-service-configmap
+                  key: supportTimeZone
+            - name: supportHourFrom
+              valueFrom:
+                configMapKeyRef:
+                  name: test-service-configmap
+                  key: supportHourFrom
+            - name: supportHourTo
+              valueFrom:
+                configMapKeyRef:
+                  name: test-service-configmap
+                  key: supportHourTo
+            - name: clientRestUrl
+              valueFrom:
+                configMapKeyRef:
+                  name: test-service-configmap
+                  key: clientRestUrl
+            - name: clientResponseOK
+              valueFrom:
+                configMapKeyRef:
+                  name: test-service-configmap
+                  key: clientResponseOK
+            - name: ccParameter
+              valueFrom:
+                configMapKeyRef:
+                  name: test-service-configmap
+                  key: ccParameter
+            - name: db_serverName
+              valueFrom:
+                configMapKeyRef:
+                  name: test-service-configmap
+                  key: db_serverName
+            - name: db_portNumber
+              valueFrom:
+                configMapKeyRef:
+                  name: test-service-configmap
+                  key: db_portNumber
+            - name: db_databaseName
+              valueFrom:
+                configMapKeyRef:
+                  name: test-service-configmap
+                  key: db_databaseName
+            - name: db_username
+              valueFrom:
+                configMapKeyRef:
+                  name: test-service-configmap
+                  key: db_username
+            - name: password
+              valueFrom:
+                secretKeyRef:
+                  name: test-service-secret
+                  key: password
+            - name: trustStorePass
+              valueFrom:
+                secretKeyRef:
+                  name: test-service-secret
+                  key: trustStorePass
+            - name: db_password
+              valueFrom:
+                secretKeyRef:
+                  name: test-service-secret
+                  key: db_password
+            - name: keyStorePass
+              valueFrom:
+                secretKeyRef:
+                  name: test-service-secret
+                  key: keyStorePass
+          # system probes
+          readinessProbe:
+            httpGet:
+              host:
+              path: /health/ready
+              port: 9082
+            initialDelaySeconds: 30
+            periodSeconds: 10
+            timeoutSeconds: 3
+            failureThreshold: 1
+          livenessProbe:
+            httpGet:
+              host:
+              path: /health/live
+              port: 9082
+            initialDelaySeconds: 60
+            periodSeconds: 10
+            timeoutSeconds: 3
+            failureThreshold: 1

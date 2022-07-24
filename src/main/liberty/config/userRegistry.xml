@@ -1,0 +1,3 @@
+<server description="Sample Liberty server">
+    <basicRegistry id="basic" realm="WebRealm"/>
+</server>
