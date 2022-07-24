@@ -101,5 +101,7 @@ public class DatabaseCDI {
 		return false;
 	}
 
-
+	public void setEm(EntityManager em) {
+		this.em = em;
+	}
 }

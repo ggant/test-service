@@ -38,7 +38,6 @@ public abstract class AbstractContainerBaseTest {
 
         testService.start();
 
-        //url = "http://" + testService.getHost() +":" + testService.getMappedPort(9082);
-        url = "http://20.23.64.180:8080";
+        url = "http://" + testService.getHost() +":" + testService.getMappedPort(9082);
     }
 }
