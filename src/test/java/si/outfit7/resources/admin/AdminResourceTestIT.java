@@ -26,9 +26,9 @@ import static org.junit.jupiter.api.Assertions.assertTrue;
  * @author Goran Corkovic
  */
 @Testcontainers
-class AdminResourceTest extends AbstractContainerBaseTest {
+class AdminResourceTestIT extends AbstractContainerBaseTest {
 
-    private static final Logger LOG = LoggerFactory.getLogger(AdminResourceTest.class.getName());
+    private static final Logger LOG = LoggerFactory.getLogger(AdminResourceTestIT.class.getName());
 
     private HttpClient client = HttpClient.newHttpClient();
 

@@ -24,9 +24,9 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
  * @author Goran Corkovic
  */
 @Testcontainers
-class ServiceResourceTest extends AbstractContainerBaseTest {
+class ServiceResourceTestIT extends AbstractContainerBaseTest {
 
-    private static final Logger LOG = LoggerFactory.getLogger(ServiceResourceTest.class.getName());
+    private static final Logger LOG = LoggerFactory.getLogger(ServiceResourceTestIT.class.getName());
 
     private HttpClient client = HttpClient.newHttpClient();
 

@@ -118,10 +118,12 @@ Authenticator class prepare HTTP header with Basic authentication, used for call
   ![Beans](pictures/util.PNG)
 
 - liberty/config/server.xml:
-Contain settings for Openliberty server.
+Contains settings for Openliberty server.
 
 - resources/META-INF/persistent.xml:
 Definitions of DataSource connection to serverless database.
+
+- Dockerfile: Instructions for building Docker image.
 
 Service decouple database entity model (used for communication with database) 
 from java data type model (used as response of REST API).
@@ -135,7 +137,7 @@ In case we made some changes to our database model REST interface remains the sa
 
 2. Run a Maven build.
 
-         mvn clean package -DskipTests
+         mvn clean package
 3. Build docker image
 
          docker build -t test-service .    
@@ -147,10 +149,10 @@ In case we made some changes to our database model REST interface remains the sa
          docker push <repositoy>/test-service:1.0  
 
 ### Test service
-The service uses JUnit and Testcontainer frameworks for running the test. To successfully run test user machine must have Docker installed. 
-1. Run tests.
+The service uses JUnit and Testcontainer frameworks for running integration tests. To successfully run test user machine must have Docker installed. 
+1. Run integration tests.
 
-         mvn test
+         mvn verify
 
 ## Kubernetes
 The service can be installed on any private or public Kubernetes cluster.
